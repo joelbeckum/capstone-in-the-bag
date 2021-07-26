@@ -48,7 +48,7 @@ export const BagDetail = () => {
                         <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         Remove Bag
                     </div>
-                    <div className="bagButton">
+                    <div className="bagButton" onClick={() => history.push("/")}>
                         <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         Back to Bags
                     </div> 
