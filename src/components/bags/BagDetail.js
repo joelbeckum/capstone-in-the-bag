@@ -32,7 +32,6 @@ export const BagDetail = () => {
         <>
             <section className="bagDetail">
                 <div className="discs__wrapper">
-                    {console.log(bag?.name)}
                     {
                         bagDiscs?.map(userDisc => {
                             return <UserDisc key={userDisc.id} userDisc={userDisc} />
@@ -40,7 +39,7 @@ export const BagDetail = () => {
                     }
                 </div>
                 <div className="bagButtons__wrapper">
-                    <div className="bagButton">
+                    <div className="bagButton" onClick={() => history.push(`/discs/addTo/${bag?.id}`)}>
                         <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         Add Disc
                     </div>

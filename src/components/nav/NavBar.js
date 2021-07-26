@@ -8,7 +8,7 @@ export const NavBar = (props) => {
     return (
         <nav className="navbar">
             <div className="logo" onClick={() => history.push("/")}>
-                <img src="https://via.placeholder.com/75x75" alt="placeholder image"/>
+                <img src="https://via.placeholder.com/75x75" alt="placeholder"/>
             </div>
             <div className="logout">
                 <Link

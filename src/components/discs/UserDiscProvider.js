@@ -7,7 +7,7 @@ export const UserDiscProvider = (props) => {
 
     const getUserDiscs = () => {
         return fetch("http://localhost:8088/userDiscs")
-        .then(response => response.json())
+        .then(res => res.json())
         .then(setUserDiscs)
     }
 
