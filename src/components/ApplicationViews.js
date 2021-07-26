@@ -27,6 +27,9 @@ export const ApplicationViews = () => {
                 <Route exact path="/bags/create">
                     <BagForm />
                 </Route>
+                <Route exact path="/bags/edit/:bagId(\d+)">
+                    <BagForm />
+                </Route>
             </BagProvider>
         </>
     )
