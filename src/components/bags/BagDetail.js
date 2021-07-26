@@ -44,14 +44,14 @@ export const BagDetail = () => {
                         <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         Add Disc
                     </div>
+                    <div className="bagButton" onClick={() => history.push(`/bags/edit/${bag.id}`)}>
+                        <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
+                        Change Bag Name
+                    </div>
                     <div className="bagButton">
                         <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         Remove Bag
                     </div>
-                    <div className="bagButton" onClick={() => history.push("/")}>
-                        <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                        Back to Bags
-                    </div> 
                 </div>
             </section>
         </>
