@@ -1,0 +1,29 @@
+.bags__title {
+    text-align: center;
+}
+
+.bags__wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bag {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.buttons__wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+    cursor: pointer;
+}
