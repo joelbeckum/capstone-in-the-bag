@@ -23,17 +23,17 @@ export const BagDashboard = () => {
                 <div className="bags__wrapper">
                     {
                         currentUserBags?.map(bag => {
-                            return <Bag bag={bag} />
+                            return <Bag key={bag.id} bag={bag} />
                         })
                     }
                 </div>
                 <div className="buttons__wrapper">
                     <div className="button bags__new" onClick={() => history.push("/bags/create")}>
-                        <img src="https://via.placeholder.com/115x130" alt="placeholder image"/>
+                        <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         Create a Bag
                     </div>
                     <div className="button bags__friends">
-                        <img src="https://via.placeholder.com/115x130" alt="placeholder image"/>
+                        <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         See Others' Bags
                     </div>
                 </div>

@@ -11,11 +11,17 @@ export const BagProvider = (props) => {
         .then(setBags)
     }
 
+    const getBagById = id => {
+        return fetch(`http://localhost:8088/bags/${id}`)
+        .then(res => res.json())
+    }
+
     return (
         <BagContext.Provider
             value={{
                 bags,
-                getBags
+                getBags,
+                getBagById
             }}
         >
             {props.children}

@@ -1,3 +1,5 @@
+/* -- Dashboard Styling -- */
+
 .bags__title {
     text-align: center;
 }
@@ -26,4 +28,46 @@
     text-align: center;
     margin: 20px;
     cursor: pointer;
+}
+
+/* -- Bag Detail Styling -- */
+
+.bagDetail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.discs__wrapper {
+    border: 1px dotted red;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bagDisc {
+    border: 1px dotted blue;
+    margin: 10px;
+    padding: 0 10px;
+    max-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bagButtons__wrapper {
+    border: 1px dotted red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.bagButton {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px dotted blue;
+    
 }
