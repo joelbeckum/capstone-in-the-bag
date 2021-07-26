@@ -10,13 +10,17 @@ export const BagDashboard = () => {
         getBags()
     }, [])
 
+    const currentUserId = parseInt(sessionStorage.getItem("itb_user"))
+
+    const currentUserBags = bags?.filter(bag => bag.userId === currentUserId)
+
     return (
         <>
             <h1 className="title">Your Bags</h1>
             <section className="dashboard">
                 <div className="bags__wrapper">
                     {
-                        bags?.map(bag => {
+                        currentUserBags?.map(bag => {
                             return <Bag bag={bag} />
                         })
                     }
