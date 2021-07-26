@@ -1,0 +1,19 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255,165,0);
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+}
+
+.logout {
+    min-width: 75px;
+    min-height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
