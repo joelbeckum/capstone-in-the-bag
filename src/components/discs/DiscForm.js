@@ -40,6 +40,11 @@ export const DiscForm = () => {
         setUserDisc(newUserDisc)
     }
 
+    const handleEnteredText = e => {
+        setEnteredText(e.target.value)
+        setSearchTerms(e.target.value)
+    }
+
     const handleDiscClick = e => {
         const newUserDisc = {...userDisc}
         newUserDisc.discId = e.target.id
@@ -47,7 +52,7 @@ export const DiscForm = () => {
         setSearchTerms("")
         setEnteredText("")
     }
-
+    console.log("rendering")
     let suggestionList
     if (searchTerms) {
         suggestionList = (
@@ -55,7 +60,7 @@ export const DiscForm = () => {
                 {console.log(filteredDiscs)}
                 {
                     filteredDiscs?.map(disc => {
-                        return <li className="suggestion" id={disc.Id} onClick={handleDiscClick}>
+                        return <li className="suggestion" key={disc.Id} id={disc.Id} onClick={handleDiscClick}>
                                 {disc.Name}
                             </li>
                     })
@@ -72,7 +77,7 @@ export const DiscForm = () => {
                        id="discId"
                        value={enteredText}
                        placeholder={selectedDisc ? `${selectedDisc.Name}` : ""}
-                       onChange={e => setSearchTerms(e.target.value)} />
+                       onChange={handleEnteredText} />
                 {suggestionList}                
             </div>
         </>
