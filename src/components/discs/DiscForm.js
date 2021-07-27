@@ -11,7 +11,7 @@ export const DiscForm = () => {
     const history = useHistory()
     const [ isLoading, setIsLoading ] = useState(true)
     const [ searchTerms, setSearchTerms ] = useState("")
-    const [ pendingDisc, setPendingDisc ] = useState({})
+    // const [ pendingDisc, setPendingDisc ] = useState({})
     const { bagId } = useParams()
     const { userDiscId } = useParams()
 
@@ -35,9 +35,9 @@ export const DiscForm = () => {
         discId: 0,
         userId: 0
     })
-    
-    const selectedDisc = discs?.find(disc => disc.id === userDisc.discId)
 
+    let pendingDisc = discs?.find(disc => disc.id === userDisc.discId)
+    
     const handleInputChange = e => {
         const newUserDisc = {...userDisc}
         newUserDisc[e.target.id] = e.target.value
@@ -50,13 +50,10 @@ export const DiscForm = () => {
 
     const handleDiscClick = e => {
         const newUserDisc = {...userDisc}
-        let newPendingDisc = discs?.find(disc => disc.id === e.target.id)
-        console.log(newPendingDisc)
+        pendingDisc = discs?.find(disc => disc.id === e.target.id)
         
         newUserDisc.discId = e.target.id
         setUserDisc(newUserDisc)
-
-        setPendingDisc(newPendingDisc)
 
         setSearchTerms("")
     }
@@ -136,7 +133,7 @@ export const DiscForm = () => {
         )
     }
 
-    if (pendingDisc.id) {
+    if (pendingDisc?.id) {
         flightPathImage = (
             <>
                 <h3 className="discImage__title">{pendingDisc?.name}</h3>
@@ -160,7 +157,7 @@ export const DiscForm = () => {
                                 id="discId"
                                 autoComplete="off"
                                 value={searchTerms}
-                                placeholder={selectedDisc ? `${selectedDisc.name}` : ""}
+                                placeholder={pendingDisc ? `${pendingDisc.name}` : ""}
                                 onChange={handleEnteredSearchTerms} />
                             {suggestionList}                
                         </div>
