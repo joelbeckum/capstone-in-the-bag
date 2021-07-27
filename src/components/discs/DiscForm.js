@@ -2,13 +2,16 @@ import React, { useState, useEffect, useContext } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { DiscContext } from "./DiscProvider"
 import { UserDiscContext } from "./UserDiscProvider"
+import { FlightPathImage } from "./FlightPathImage"
 import "./Discs.css"
 
 export const DiscForm = () => {
     const { discs, getDiscs, getDiscById } = useContext(DiscContext)
     const { userDiscs, getUserDiscById, addUserDisc } = useContext(UserDiscContext)
     const [ searchTerms, setSearchTerms ] = useState("")
+    const [ pendingDisc, setPendingDisc ] = useState({})
     const { bagId } = useParams()
+    const { discId } = useParams()
     const currentUserId = parseInt(sessionStorage.getItem("itb_user"))
 
     useEffect(() => {
@@ -29,20 +32,27 @@ export const DiscForm = () => {
         setUserDisc(newUserDisc)
     }
 
-    const handleEnteredText = e => {
+    const handleEnteredSearchTerms = e => {
         setSearchTerms(e.target.value)
     }
 
     const handleDiscClick = e => {
         const newUserDisc = {...userDisc}
+        let newPendingDisc = discs?.find(disc => disc.id === e.target.id)
+        console.log(newPendingDisc)
+        
         newUserDisc.discId = e.target.id
         setUserDisc(newUserDisc)
+
+        setPendingDisc(newPendingDisc)
+
         setSearchTerms("")
     }
 
     console.log("rendering")
     let suggestionList
     let filteredDiscs
+    let flightPathImage
     
     if (searchTerms) {
         filteredDiscs = discs.filter(disc => disc.name?.toLowerCase().includes(searchTerms))
@@ -52,7 +62,10 @@ export const DiscForm = () => {
                     {console.log(filteredDiscs)}
                     {
                         filteredDiscs?.map(disc => {
-                            return <li className="suggestion" key={disc.id} id={disc.id} onClick={handleDiscClick}>
+                            return <li className="suggestion" 
+                                       key={disc.id} 
+                                       id={disc.id} 
+                                       onClick={handleDiscClick}>
                                     {disc.name}
                                 </li>
                         })
@@ -62,16 +75,47 @@ export const DiscForm = () => {
         )
     }
 
+    if (pendingDisc.id) {
+        flightPathImage = (
+            <>
+                <h3 className="discImage__title">{pendingDisc?.name}</h3>
+                <div className="discImage__type">Type: {pendingDisc?.discType}</div>
+                <div className="discImage">
+                    <FlightPathImage key={pendingDisc?.id} disc={pendingDisc} />
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
-            <div className="discSearch">
-                <input type="text"
-                       className="search-box"
-                       id="discId"
-                       value={searchTerms}
-                       placeholder={selectedDisc ? `${selectedDisc.name}` : ""}
-                       onChange={handleEnteredText} />
-                {suggestionList}                
+            <div className="discForm__wrapper">
+                <div className="discForm__inputWrapper">
+                    <form className="discForm">
+                        <h3 className="discForm__title">{discId ? "Edit Disc" : "New Disc"}</h3>
+                        <div className="discForm__search">
+                            <input type="text"
+                                className="search-box"
+                                id="discId"
+                                autoComplete="off"
+                                value={searchTerms}
+                                placeholder={selectedDisc ? `${selectedDisc.name}` : ""}
+                                onChange={handleEnteredSearchTerms} />
+                            {suggestionList}                
+                        </div>
+                        <div className="discForm__name">
+                            <input type="text"
+                                autoComplete="off"
+                                id="name"
+                                value={userDisc.name}
+                                placeholder="Enter a name for your disc"
+                                onChange={handleInputChange} />
+                        </div>
+                    </form>
+                </div>
+                <div className="discForm__imageWrapper">
+                    {flightPathImage}
+                </div>
             </div>
         </>
     )
