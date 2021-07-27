@@ -7,15 +7,27 @@ import "./Discs.css"
 
 export const DiscForm = () => {
     const { discs, getDiscs, getDiscById } = useContext(DiscContext)
-    const { userDiscs, getUserDiscById, addUserDisc } = useContext(UserDiscContext)
+    const { userDiscs, getUserDiscById, addUserDisc, updateUserDisc } = useContext(UserDiscContext)
+    const history = useHistory()
+    const [ isLoading, setIsLoading ] = useState(true)
     const [ searchTerms, setSearchTerms ] = useState("")
     const [ pendingDisc, setPendingDisc ] = useState({})
     const { bagId } = useParams()
-    const { discId } = useParams()
-    const currentUserId = parseInt(sessionStorage.getItem("itb_user"))
+    const { userDiscId } = useParams()
 
     useEffect(() => {
         getDiscs()
+    }, [])
+
+    useEffect(() => {
+        if (userDiscId) {
+            getUserDiscById(userDiscId).then(e => {
+                setUserDisc(e)
+                setIsLoading(false)
+            })
+        } else {
+            setIsLoading(false)
+        }
     }, [])
 
     const [ userDisc, setUserDisc ] = useState({
@@ -47,6 +59,31 @@ export const DiscForm = () => {
         setPendingDisc(newPendingDisc)
 
         setSearchTerms("")
+    }
+
+    const handleClickSaveDisc = e => {
+        e.preventDefault()
+
+        const currentBagId = parseInt(bagId)
+
+        setIsLoading(true)
+        if (userDiscId) {
+            updateUserDisc({
+                id: userDisc.id,
+                name: userDisc.name,
+                bagId: userDisc.bagId,
+                discId: userDisc.discId
+            }).then(() => history.push(`/bags/${bagId}`))
+        } else {
+            const newUserDisc = {
+                name: userDisc.name,
+                bagId: currentBagId,
+                discId: userDisc.discId
+            }
+
+            addUserDisc(newUserDisc)
+            .then(() => history.push(`/bags/${bagId}`))
+        }
     }
 
     console.log("rendering")
@@ -92,7 +129,7 @@ export const DiscForm = () => {
             <div className="discForm__wrapper">
                 <div className="discForm__inputWrapper">
                     <form className="discForm">
-                        <h3 className="discForm__title">{discId ? "Edit Disc" : "New Disc"}</h3>
+                        <h3 className="discForm__title">{userDiscId ? "Edit Disc" : "New Disc"}</h3>
                         <div className="discForm__search">
                             <input type="text"
                                 className="search-box"
@@ -115,6 +152,16 @@ export const DiscForm = () => {
                 </div>
                 <div className="discForm__imageWrapper">
                     {flightPathImage}
+                </div>
+            </div>
+            <div className="buttons__wrapper">
+                <div className="button disc__save" onClick={handleClickSaveDisc}>
+                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
+                    {userDiscId ? "Save Changes" : "Add Disc"}
+                </div>
+                <div className="button disc__return" onClick={() => history.push("/")}>
+                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
+                    Back to Bags
                 </div>
             </div>
         </>

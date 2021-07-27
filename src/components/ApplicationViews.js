@@ -40,6 +40,9 @@ export const ApplicationViews = () => {
                         <Route exact path="/discs/addTo/:bagId(\d+)">
                             <DiscForm />
                         </Route>
+                        <Route exact path="/discs/edit/:userDiscId(\d+)">
+                            <DiscForm />
+                        </Route>
                     </UserDiscProvider>
                 </DiscProvider>
             </BagProvider>
