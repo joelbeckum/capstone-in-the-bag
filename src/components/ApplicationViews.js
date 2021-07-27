@@ -5,6 +5,8 @@ import { BagDashboard } from "./bags/BagDashboard"
 import { BagForm } from "./bags/BagForm"
 import { BagDetail } from "./bags/BagDetail"
 import { UserDiscProvider } from "./discs/UserDiscProvider"
+import { DiscProvider } from "./discs/DiscProvider"
+import { DiscForm } from "./discs/DiscForm"
 
 export const ApplicationViews = () => {
     return (
@@ -30,6 +32,19 @@ export const ApplicationViews = () => {
                 <Route exact path="/bags/edit/:bagId(\d+)">
                     <BagForm />
                 </Route>
+            </BagProvider>
+
+            <BagProvider>
+                <DiscProvider>
+                    <UserDiscProvider>
+                        <Route exact path="/discs/addTo/:bagId(\d+)">
+                            <DiscForm />
+                        </Route>
+                        <Route exact path="/discs/edit/:userDiscId(\d+)">
+                            <DiscForm />
+                        </Route>
+                    </UserDiscProvider>
+                </DiscProvider>
             </BagProvider>
         </>
     )

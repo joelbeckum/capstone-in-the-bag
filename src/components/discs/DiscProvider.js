@@ -4,18 +4,25 @@ export const DiscContext = createContext()
 
 export const DiscProvider = (props) => {
     const [ discs, setDiscs ] = useState()
+    // const [ searchTerms, setSearchTerms ] = useState("")
 
     const getDiscs = () => {
         return fetch("http://localhost:5000/discs")
-        .then(response => response.json())
+        .then(res => res.json())
         .then(setDiscs)
+    }
+
+    const getDiscById = id => {
+        return fetch(`http://localhost:5000/discs/${id}`)
+        .then(res => res.json())
     }
 
     return (
         <DiscContext.Provider
             value={{
                 discs,
-                getDiscs
+                getDiscs,
+                getDiscById,
             }}
         >
             {props.children}

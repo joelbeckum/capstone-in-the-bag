@@ -6,8 +6,7 @@ export const UserDisc = ({ userDisc }) => {
     const history = useHistory()
 
     return (
-        <div className="bagDisc" onClick={() => history.push(`/discs/${userDisc.id}`)}>
-            {console.log(userDisc.name)}
+        <div className="bagDisc" onClick={() => history.push(`/discs/edit/${userDisc.id}`)}>
             <div className="bagDisc__name">{userDisc.name}</div>
         </div>
     )
