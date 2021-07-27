@@ -7,24 +7,13 @@ import "./Discs.css"
 export const DiscForm = () => {
     const { discs, getDiscs, getDiscById } = useContext(DiscContext)
     const { userDiscs, getUserDiscById, addUserDisc } = useContext(UserDiscContext)
-    const [ filteredDiscs, setFilteredDiscs ] = useState([])
     const [ searchTerms, setSearchTerms ] = useState("")
-    const [ enteredText, setEnteredText ] = useState("")
     const { bagId } = useParams()
     const currentUserId = parseInt(sessionStorage.getItem("itb_user"))
 
     useEffect(() => {
         getDiscs()
     }, [])
-
-    useEffect(() => {
-        if (searchTerms) {
-            const subset = discs.filter(disc => disc.Name?.toLowerCase().includes(searchTerms))
-            setFilteredDiscs(subset)
-        } else {
-            setFilteredDiscs(discs)
-        }
-    }, [searchTerms])
 
     const [ userDisc, setUserDisc ] = useState({
         name: "",
@@ -41,7 +30,6 @@ export const DiscForm = () => {
     }
 
     const handleEnteredText = e => {
-        setEnteredText(e.target.value)
         setSearchTerms(e.target.value)
     }
 
@@ -50,22 +38,27 @@ export const DiscForm = () => {
         newUserDisc.discId = e.target.id
         setUserDisc(newUserDisc)
         setSearchTerms("")
-        setEnteredText("")
     }
+
     console.log("rendering")
     let suggestionList
+    let filteredDiscs
+    
     if (searchTerms) {
+        filteredDiscs = discs.filter(disc => disc.Name?.toLowerCase().includes(searchTerms))
         suggestionList = (
-            <ul className="suggestions">
-                {console.log(filteredDiscs)}
-                {
-                    filteredDiscs?.map(disc => {
-                        return <li className="suggestion" key={disc.Id} id={disc.Id} onClick={handleDiscClick}>
-                                {disc.Name}
-                            </li>
-                    })
-                }
-            </ul>
+            <div className="suggestion__wrapper">
+                <ul className="suggestions">
+                    {console.log(filteredDiscs)}
+                    {
+                        filteredDiscs?.map(disc => {
+                            return <li className="suggestion" key={disc.Id} id={disc.Id} onClick={handleDiscClick}>
+                                    {disc.Name}
+                                </li>
+                        })
+                    }
+                </ul>
+            </div>
         )
     }
 
@@ -75,7 +68,7 @@ export const DiscForm = () => {
                 <input type="text"
                        className="search-box"
                        id="discId"
-                       value={enteredText}
+                       value={searchTerms}
                        placeholder={selectedDisc ? `${selectedDisc.Name}` : ""}
                        onChange={handleEnteredText} />
                 {suggestionList}                
