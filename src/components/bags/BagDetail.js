@@ -8,7 +8,7 @@ import "./Bags.css"
 export const BagDetail = () => {
     const [ bag, setBag ] = useState({})
     const { userDiscs, getUserDiscs } = useContext(UserDiscContext)
-    const { getBagById } = useContext(BagContext)
+    const { getBagById, removeBag } = useContext(BagContext)
     const history = useHistory()
     const {bagId} = useParams()
 
@@ -26,6 +26,12 @@ export const BagDetail = () => {
     const bagDiscs = userDiscs?.filter(userDisc => bag.id === userDisc.bagId)
     if (bag.userId === currentUserId) {
         ownedBag = true
+    }
+
+    const handleClickDeleteBag = e => {
+        e.preventDefault()
+        removeBag(bag.id)
+        .then(history.push("/"))
     }
 
     return (
@@ -47,7 +53,7 @@ export const BagDetail = () => {
                         <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         Change Bag Name
                     </div>
-                    <div className="bagButton">
+                    <div className="bagButton" onClick={handleClickDeleteBag}>
                         <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         Remove Bag
                     </div>

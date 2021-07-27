@@ -7,7 +7,7 @@ import "./Discs.css"
 
 export const DiscForm = () => {
     const { discs, getDiscs, getDiscById } = useContext(DiscContext)
-    const { userDiscs, getUserDiscById, addUserDisc, updateUserDisc } = useContext(UserDiscContext)
+    const { userDiscs, getUserDiscById, addUserDisc, updateUserDisc, removeUserDisc } = useContext(UserDiscContext)
     const history = useHistory()
     const [ isLoading, setIsLoading ] = useState(true)
     const [ searchTerms, setSearchTerms ] = useState("")
@@ -87,6 +87,29 @@ export const DiscForm = () => {
         }
     }
 
+    const handleClickDeleteDisc = e => {
+        e.preventDefault()
+        removeUserDisc(userDiscId)
+        .then(history.push(`/bags/${userDisc.bagId}`))
+    }
+
+    let variableButton
+    if (userDiscId) {
+        variableButton = (
+            <div className="button disc__delete" onClick={handleClickDeleteDisc}>
+                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
+                    Remove Disc from Bag
+                </div>
+        )
+    } else {
+        variableButton = (
+            <div className="button disc__return" onClick={() => history.push("/")}>
+                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
+                    Back to Bags
+                </div>
+        )
+    }
+
     console.log("rendering")
     let suggestionList
     let filteredDiscs
@@ -160,10 +183,7 @@ export const DiscForm = () => {
                     <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                     {userDiscId ? "Save Changes" : "Add Disc"}
                 </div>
-                <div className="button disc__return" onClick={() => history.push("/")}>
-                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                    Back to Bags
-                </div>
+                {variableButton}
             </div>
         </>
     )
