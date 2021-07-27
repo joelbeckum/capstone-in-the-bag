@@ -12,7 +12,8 @@ export const OtherBagList = () => {
 
     const currentUserId = parseInt(sessionStorage.getItem("itb_user"))
 
-    const otherBags = bags?.filter(bag => bag.id !== currentUserId)
+    const otherBags = bags?.filter(bag => bag.userId !== currentUserId)
+    console.log(otherBags)
 
     return (
         <>
