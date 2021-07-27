@@ -21,7 +21,7 @@ export const DiscForm = () => {
         userId: 0
     })
     
-    const selectedDisc = discs?.find(disc => disc.Id === userDisc.discId)
+    const selectedDisc = discs?.find(disc => disc.id === userDisc.discId)
 
     const handleInputChange = e => {
         const newUserDisc = {...userDisc}
@@ -45,15 +45,15 @@ export const DiscForm = () => {
     let filteredDiscs
     
     if (searchTerms) {
-        filteredDiscs = discs.filter(disc => disc.Name?.toLowerCase().includes(searchTerms))
+        filteredDiscs = discs.filter(disc => disc.name?.toLowerCase().includes(searchTerms))
         suggestionList = (
             <div className="suggestion__wrapper">
                 <ul className="suggestions">
                     {console.log(filteredDiscs)}
                     {
                         filteredDiscs?.map(disc => {
-                            return <li className="suggestion" key={disc.Id} id={disc.Id} onClick={handleDiscClick}>
-                                    {disc.Name}
+                            return <li className="suggestion" key={disc.id} id={disc.id} onClick={handleDiscClick}>
+                                    {disc.name}
                                 </li>
                         })
                     }
@@ -69,7 +69,7 @@ export const DiscForm = () => {
                        className="search-box"
                        id="discId"
                        value={searchTerms}
-                       placeholder={selectedDisc ? `${selectedDisc.Name}` : ""}
+                       placeholder={selectedDisc ? `${selectedDisc.name}` : ""}
                        onChange={handleEnteredText} />
                 {suggestionList}                
             </div>
