@@ -36,6 +36,12 @@ export const UserDiscProvider = (props) => {
         }).then(getUserDiscs)
     }
 
+    const removeUserDisc = id => {
+        return fetch(`http://localhost:8088/userDiscs/${id}`, {
+            method: "DELETE"
+        }).then(getUserDiscs)
+    }
+
     return (
         <UserDiscContext.Provider
             value={{
@@ -43,7 +49,8 @@ export const UserDiscProvider = (props) => {
                 getUserDiscs,
                 getUserDiscById,
                 addUserDisc,
-                updateUserDisc
+                updateUserDisc,
+                removeUserDisc
             }}
         >
             {props.children}
