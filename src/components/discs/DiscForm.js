@@ -68,12 +68,13 @@ export const DiscForm = () => {
 
         setIsLoading(true)
         if (userDiscId) {
+            console.log(bagId)
             updateUserDisc({
                 id: userDisc.id,
                 name: userDisc.name,
                 bagId: userDisc.bagId,
                 discId: userDisc.discId
-            }).then(() => history.push(`/bags/${bagId}`))
+            }).then(() => history.push(`/bags/${userDisc.bagId}`))
         } else {
             const newUserDisc = {
                 name: userDisc.name,
