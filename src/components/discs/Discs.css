@@ -1,3 +1,19 @@
 .discForm__wrapper {
     display: flex;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* -- Image and Stats styling -- */
+.discImage__statsWrapper {
+    display: flex;
+}

@@ -138,8 +138,24 @@ export const DiscForm = () => {
             <>
                 <h3 className="discImage__title">{pendingDisc?.name}</h3>
                 <div className="discImage__type">Type: {pendingDisc?.discType}</div>
-                <div className="discImage">
-                    <FlightPathImage key={pendingDisc?.id} disc={pendingDisc} />
+                <div className="discImage__statsWrapper">
+                    <div className="discImage__stats">
+                        <div className="discImage__stat">
+                            Speed: {pendingDisc?.speed}
+                        </div>
+                        <div className="discImage__stat">
+                            Glide: {pendingDisc?.glide}
+                        </div>
+                        <div className="discImage__stat">
+                            Fade: {pendingDisc?.fade}
+                        </div>
+                        <div className="discImage__stat">
+                            Turn: {pendingDisc?.turn}
+                        </div>
+                    </div>
+                    <div className="discImage">
+                        <FlightPathImage key={pendingDisc?.id} disc={pendingDisc} />
+                    </div>
                 </div>
             </>
         )
