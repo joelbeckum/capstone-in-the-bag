@@ -6,12 +6,11 @@ import { FlightPathImage } from "./FlightPathImage"
 import "./Discs.css"
 
 export const DiscForm = () => {
-    const { discs, getDiscs, getDiscById } = useContext(DiscContext)
-    const { userDiscs, getUserDiscById, addUserDisc, updateUserDisc, removeUserDisc } = useContext(UserDiscContext)
+    const { discs, getDiscs } = useContext(DiscContext)
+    const { getUserDiscById, addUserDisc, updateUserDisc, removeUserDisc } = useContext(UserDiscContext)
     const history = useHistory()
     const [ isLoading, setIsLoading ] = useState(true)
     const [ searchTerms, setSearchTerms ] = useState("")
-    // const [ pendingDisc, setPendingDisc ] = useState({})
     const { bagId } = useParams()
     const { userDiscId } = useParams()
 

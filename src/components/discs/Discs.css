@@ -17,3 +17,16 @@
 .discImage__statsWrapper {
     display: flex;
 }
+
+
+
+
+/* -- Other Disc Detail styling -- */
+.otherDiscDetail {
+    display: flex;
+}
+
+.otherDiscButton {
+    display: flex;
+    flex-direction: column;
+}

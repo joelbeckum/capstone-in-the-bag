@@ -15,7 +15,7 @@ export const Bag = ({ bag }) => {
     }
 
     let otherUserNameString
-    if (currentUserId !== bag.id) {
+    if (currentUserId !== bag.userId) {
         otherUserNameString = `${bag.user.firstName}'s bag`
     }
 

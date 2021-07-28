@@ -12,7 +12,7 @@ export const BagProvider = (props) => {
     }
 
     const getBagById = id => {
-        return fetch(`http://localhost:8088/bags/${id}`)
+        return fetch(`http://localhost:8088/bags/${id}?_expand=user`)
         .then(res => res.json())
     }
 

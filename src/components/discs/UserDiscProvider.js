@@ -6,7 +6,7 @@ export const UserDiscProvider = (props) => {
     const [ userDiscs, setUserDiscs ] = useState()
 
     const getUserDiscs = () => {
-        return fetch("http://localhost:8088/userDiscs")
+        return fetch("http://localhost:8088/userDiscs?_expand=bag")
         .then(res => res.json())
         .then(setUserDiscs)
     }
