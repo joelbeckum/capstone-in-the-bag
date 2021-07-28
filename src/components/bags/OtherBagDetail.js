@@ -3,6 +3,8 @@ import { useParams, useHistory } from "react-router-dom"
 import { BagContext } from "./BagProvider"
 import { UserDiscContext } from "../discs/UserDiscProvider"
 import { UserDisc } from "../discs/UserDisc"
+import { MessageContext } from "../messages/MessageProvider"
+import { MessageForm } from "../messages/MessageForm"
 import "./Bags.css"
 
 export const OtherBagDetail = () => {
@@ -35,6 +37,12 @@ export const OtherBagDetail = () => {
                 <div className="otherButton" onClick={() => history.push("/otherBags")}>
                     <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                     Back to Other Bags
+                </div>
+            </div>
+            <div className="messages__wrapper">
+                <MessageForm />
+                <div className="messages">
+                    
                 </div>
             </div>
         </section>

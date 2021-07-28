@@ -10,6 +10,7 @@ import { OtherDiscDetail } from "./discs/OtherDiscDetail"
 import { UserDiscProvider } from "./discs/UserDiscProvider"
 import { DiscProvider } from "./discs/DiscProvider"
 import { DiscForm } from "./discs/DiscForm"
+import { MessageProvider } from "./messages/MessageProvider"
 
 export const ApplicationViews = () => {
     return (
@@ -25,12 +26,14 @@ export const ApplicationViews = () => {
 
             <BagProvider>
                 <UserDiscProvider>
-                    <Route exact path="/bags/:bagId(\d+)">
-                        <BagDetail />
-                    </Route>
-                    <Route exact path="/otherBags/:bagId(\d+)">
-                        <OtherBagDetail />
-                    </Route>
+                    <MessageProvider>
+                        <Route exact path="/bags/:bagId(\d+)">
+                            <BagDetail />
+                        </Route>
+                        <Route exact path="/otherBags/:bagId(\d+)">
+                            <OtherBagDetail />
+                        </Route>
+                    </MessageProvider>
                 </UserDiscProvider>
             </BagProvider>
 
