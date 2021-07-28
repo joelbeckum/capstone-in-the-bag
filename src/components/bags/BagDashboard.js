@@ -32,7 +32,7 @@ export const BagDashboard = () => {
                         <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         Create a Bag
                     </div>
-                    <div className="button bags__friends">
+                    <div className="button bags__otherBags" onClick={() => history.push("/otherBags")}>
                         <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
                         See Others' Bags
                     </div>

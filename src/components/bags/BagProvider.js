@@ -6,13 +6,13 @@ export const BagProvider = (props) => {
     const [ bags, setBags ] = useState()
 
     const getBags = () => {
-        return fetch("http://localhost:8088/bags")
+        return fetch("http://localhost:8088/bags?_expand=user")
         .then(response => response.json())
         .then(setBags)
     }
 
     const getBagById = id => {
-        return fetch(`http://localhost:8088/bags/${id}`)
+        return fetch(`http://localhost:8088/bags/${id}?_expand=user`)
         .then(res => res.json())
     }
 
