@@ -11,6 +11,11 @@ export const MessageProvider = (props) => {
         .then(setMessages)
     }
 
+    const getMessageById = id => {
+        return fetch(`http://localhost:8088/messages/${id}`)
+        .then(res => res.json())
+    }
+
     const addMessage = messageObj => {
         return fetch("http://localhost:8088/messages", {
             method: "POST",
@@ -18,6 +23,16 @@ export const MessageProvider = (props) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(messageObj),
+        }).then(getMessages)
+    }
+
+    const updateMessage = message => {
+        return fetch(`http://localhost:8088/messages/${message.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(message),
         }).then(getMessages)
     }
 
@@ -33,7 +48,9 @@ export const MessageProvider = (props) => {
                 messages,
                 getMessages,
                 addMessage,
-                removeMessage
+                removeMessage,
+                updateMessage,
+                getMessageById
             }}
         >
             {props.children}

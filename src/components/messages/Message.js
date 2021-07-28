@@ -2,8 +2,13 @@ import React, { useContext } from "react"
 import { MessageContext } from "./MessageProvider"
 import "../bags/Bags.css"
 
-export const Message = ({ message }) => {
+export const Message = ({ message, setDialog, setMessageId }) => {
     const { removeMessage } = useContext(MessageContext)
+
+    const handleEditClick = () => {
+        setDialog(true)
+        setMessageId(message.id)
+    }
     
     return (
         <div className="message">
@@ -12,6 +17,9 @@ export const Message = ({ message }) => {
             </div>
             <div className="message__body">
                 {message.body}
+            </div>
+            <div className="message__edit" onClick={handleEditClick}>
+            <img src="https://via.placeholder.com/35x20" alt="placeholder"/>
             </div>
             <div className="message__delete" onClick={() => removeMessage(message.id)}>
                 <img src="https://via.placeholder.com/25x25" alt="placeholder"/>

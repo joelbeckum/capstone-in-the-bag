@@ -16,6 +16,7 @@ export const OtherBagDetail = () => {
     const history = useHistory()
     const {bagId} = useParams()
     const [ dialog, setDialog ] = useState(false)
+    const [ messageId, setMessageId ] = useState(0)
 
     useEffect(() => {
         getBagById(bagId)
@@ -48,12 +49,18 @@ export const OtherBagDetail = () => {
             <div className="messages__wrapper">
                 <button className="dialog__button" onClick={() => setDialog(true)}>Comment on this bag</button>
                 <dialog className="dialog__box" open={dialog}>
-                    <MessageForm key={bagId} setDialog={setDialog} />
+                    <MessageForm key={bagId} 
+                                 setDialog={setDialog} 
+                                 messageId={messageId} 
+                                 setMessageId={setMessageId} />
                 </dialog>
                 <div className="messages">
                     {
                         filteredMessages?.map(message => {
-                            return <Message key={message.id} message={message} />
+                            return <Message key={message.id} 
+                                            message={message} 
+                                            setDialog={setDialog} 
+                                            setMessageId={setMessageId} />
                         })
                     }
                 </div>

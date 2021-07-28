@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { MessageContext } from "./MessageProvider"
 import "../bags/Bags.css"
 
-export const MessageForm = ({ setDialog }) => {
-    const { addMessage } = useContext(MessageContext)
+export const MessageForm = ({ setDialog, messageId, setMessageId }) => {
+    const { addMessage, updateMessage, getMessageById } = useContext(MessageContext)
     const { bagId } = useParams()
 
     const [ message, setMessage ] = useState({
@@ -12,6 +12,15 @@ export const MessageForm = ({ setDialog }) => {
         bagId: 0,
         body: ""
     })
+
+    useEffect(() => {
+        if (messageId) {
+            getMessageById(messageId)
+            .then(e => {
+                setMessage(e)
+            })
+        }
+    }, [messageId])
 
     const handleInputChange = e => {
         const newMessage = { ...message }
@@ -24,20 +33,36 @@ export const MessageForm = ({ setDialog }) => {
 
         const currentUserId = parseInt(sessionStorage.getItem("itb_user"))
 
-        if (message.body) {
-            const newMessage = {
+        if (messageId) {
+            updateMessage({
+                id: message.id,
                 userId: currentUserId,
-                bagId: parseInt(bagId),
+                bagId: message.bagId,
                 body: message.body
-            }
-
-            addMessage(newMessage)
+            })
             .then(setMessage({
                 userId: 0,
                 bagId: 0,
                 body: ""
             }))
-            .then(setDialog(false))
+            .then(() => {
+                setDialog(false)
+                setMessageId(0)
+            })
+        } else {
+            addMessage({
+                userId: currentUserId,
+                bagId: parseInt(bagId),
+                body: message.body
+            })
+            .then(setMessage({
+                userId: 0,
+                bagId: 0,
+                body: ""
+            }))
+            .then(() => {
+                setDialog(false)
+            })
         }
     }
 
@@ -52,7 +77,7 @@ export const MessageForm = ({ setDialog }) => {
                           onChange={handleInputChange} />
                 <button className="message__submit"
                         onClick={handleClickSubmit}>
-                    Add Comment
+                    {messageId ? "Update comment" : "Add comment"}
                 </button>
             </form>
         </>
