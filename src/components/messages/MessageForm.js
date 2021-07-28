@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import { MessageContext } from "./MessageProvider"
 import "../bags/Bags.css"
 
-export const MessageForm = () => {
+export const MessageForm = ({ setDialog }) => {
     const { addMessage } = useContext(MessageContext)
     const { bagId } = useParams()
 
@@ -37,6 +37,7 @@ export const MessageForm = () => {
                 bagId: 0,
                 body: ""
             }))
+            .then(setDialog(false))
         }
     }
 
