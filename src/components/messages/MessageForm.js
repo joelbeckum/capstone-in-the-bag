@@ -8,7 +8,7 @@ export const MessageForm = ({ setDialog }) => {
     const { bagId } = useParams()
 
     const [ message, setMessage ] = useState({
-        senderId: 0,
+        userId: 0,
         bagId: 0,
         body: ""
     })
@@ -26,14 +26,14 @@ export const MessageForm = ({ setDialog }) => {
 
         if (message.body) {
             const newMessage = {
-                senderId: currentUserId,
+                userId: currentUserId,
                 bagId: parseInt(bagId),
                 body: message.body
             }
 
             addMessage(newMessage)
             .then(setMessage({
-                senderId: 0,
+                userId: 0,
                 bagId: 0,
                 body: ""
             }))

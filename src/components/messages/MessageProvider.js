@@ -6,7 +6,7 @@ export const MessageProvider = (props) => {
     const [ messages, setMessages ] = useState()
 
     const getMessages = () => {
-        return fetch("http://localhost:8088/messages")
+        return fetch("http://localhost:8088/messages?_expand=user")
         .then(response => response.json())
         .then(setMessages)
     }
