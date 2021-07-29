@@ -30,12 +30,15 @@ export const BagDetail = () => {
     return (
         <>
             <section className="bagDetail">
-                <div className="discs__wrapper">
-                    {
-                        bagDiscs?.map(userDisc => {
-                            return <UserDisc key={userDisc.id} userDisc={userDisc} />
-                        })
-                    }
+                <div className="discs">
+                    <div className="discs__title">Your Discs:</div>
+                    <div className="discs__wrapper">
+                        {
+                            bagDiscs?.map(userDisc => {
+                                return <UserDisc key={userDisc.id} userDisc={userDisc} />
+                            })
+                        }
+                    </div>
                 </div>
                 <div className="bagButtons__wrapper">
                     <div className="bagButton" onClick={() => history.push(`/discs/addTo/${bag?.id}`)}>

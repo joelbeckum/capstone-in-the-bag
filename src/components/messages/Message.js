@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { MessageContext } from "./MessageProvider"
+import editIcon from "../../icons/edit-name-gray.png"
 import "../bags/Bags.css"
 
 export const Message = ({ message, setDialog, setMessageId }) => {
@@ -19,7 +20,7 @@ export const Message = ({ message, setDialog, setMessageId }) => {
                 {message.body}
             </div>
             <div className="message__edit" onClick={handleEditClick}>
-            <img src="https://via.placeholder.com/35x20" alt="placeholder"/>
+            <img src={editIcon} alt="edit icon"/>
             </div>
             <div className="message__delete" onClick={() => removeMessage(message.id)}>
                 <img src="https://via.placeholder.com/25x25" alt="placeholder"/>

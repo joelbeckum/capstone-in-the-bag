@@ -35,6 +35,13 @@
 .bagDetail {
     display: flex;
     justify-content: space-between;
+    width: 800px;
+    margin: 50px auto 20px auto;
+}
+
+.discs {
+    border-radius: 10px;
+    background-color: rgba(255, 251, 251, 0.986);
 }
 
 .discs__wrapper {
@@ -71,3 +78,10 @@
     border: 1px dotted blue;
     
 }
+
+
+
+
+
+
+/* -- message styling -- */
