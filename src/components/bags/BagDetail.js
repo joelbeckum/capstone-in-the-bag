@@ -3,12 +3,15 @@ import { useParams, useHistory } from "react-router-dom"
 import { UserDiscContext } from "../discs/UserDiscProvider"
 import { UserDisc } from "../discs/UserDisc"
 import { BagContext } from "./BagProvider"
+import { MessageContext } from "../messages/MessageProvider"
+import { OtherMessage } from "../messages/OtherMessage"
 import "./Bags.css"
 
 export const BagDetail = () => {
     const [ bag, setBag ] = useState({})
     const { userDiscs, getUserDiscs } = useContext(UserDiscContext)
     const { getBagById } = useContext(BagContext)
+    const { messages, getMessages } = useContext(MessageContext)
     const history = useHistory()
     const {bagId} = useParams()
 
@@ -18,9 +21,11 @@ export const BagDetail = () => {
             setBag(res)
         })
         .then(getUserDiscs())
+        .then(getMessages())
     }, [])
 
     const bagDiscs = userDiscs?.filter(userDisc => bag.id === userDisc.bagId)
+    const bagMessages = messages?.filter(message => bag.id === message.bagId)
 
     return (
         <>
@@ -47,6 +52,13 @@ export const BagDetail = () => {
                     </div>
                 </div>
             </section>
+            <div className="otherMessages__wrapper">
+                {
+                    bagMessages?.map(message => {
+                        return <OtherMessage key={message.id} message={message} />
+                    })
+                }
+            </div>
         </>
     )
 }
