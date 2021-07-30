@@ -17,12 +17,10 @@ export const NavBar = (props) => {
         <nav className="navbar">
             <div className="navbar__wrapper">
                 <div className="logo" onClick={() => history.push("/")}>
-                    <img src={logo} alt="placeholder"/>
+                    <img src={logo} alt="logo"/>
                 </div>
-                <div className="logout">
-                    <button className="logout__button" onClick={handleClickLogout}>
-                        LOG OUT
-                    </button>
+                <div className="logout__button" onClick={handleClickLogout}>
+                    LOG OUT
                 </div>
             </div>
         </nav>
