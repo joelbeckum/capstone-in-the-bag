@@ -6,6 +6,9 @@ import { UserDisc } from "../discs/UserDisc"
 import { BagContext } from "./BagProvider"
 import { MessageContext } from "../messages/MessageProvider"
 import { OtherMessage } from "../messages/OtherMessage"
+import discIcon from "../../icons/disc-gray.png"
+import removeIcon from "../../icons/remove-gray.png"
+import editIcon from "../../icons/edit-name-gray.png"
 import "./Bags.css"
 
 export const BagDetail = () => {
@@ -45,16 +48,16 @@ export const BagDetail = () => {
                 </div>
                 <div className="bagButtons__wrapper">
                     <div className="bagButton" onClick={() => history.push(`/discs/addTo/${bag?.id}`)}>
-                        <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                        Add Disc
+                        <img src={discIcon} alt="disc icon"/>
+                        <div className="bagButton__text">Add Disc</div>
                     </div>
                     <div className="bagButton" onClick={() => history.push(`/bags/edit/${bag.id}`)}>
-                        <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                        Change Bag Name
+                        <img src={editIcon} alt="edit icon"/>
+                        <div className="bagButton__text">Change Bag Name</div>
                     </div>
                     <div className="bagButton">
-                        <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                        Remove Bag
+                        <img src={removeIcon} alt="remove icon"/>
+                        <div className="bagButton__text">Remove Bag</div>
                     </div>
                 </div>
             </section>
