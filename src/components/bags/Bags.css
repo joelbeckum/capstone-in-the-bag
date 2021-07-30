@@ -2,19 +2,29 @@
 
 .bags__title {
     text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 25px;
 }
 
 .bags__wrapper {
-    display: flex;
-    justify-content: space-evenly;
+    width: 1000px;
+    background-color: #4444440D;
+    border-radius: 20px;
+    margin: 0 auto;
 }
 
 .bag {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 20px;
+    width: 300px;
+    margin: 0 50px 50px 0;
+    background: #ffcc00;
+    border-radius: 20px;
+    display: inline-block;
     cursor: pointer;
+}
+
+.bag:nth-child(3n) {
+    margin: 0 0 50px 0;
 }
 
 .buttons__wrapper {
@@ -42,7 +52,7 @@
 .discs {
     width: 650px;
     border-radius: 20px;
-    background-color: rgba(255, 251, 251, 0.986);
+    background-color: #4444440D;
 }
 
 .discs__title {

@@ -18,7 +18,7 @@ export const BagDashboard = () => {
 
     return (
         <>
-            <h1 className="bags__title">Your Bags</h1>
+            <div className="bags__title">Your Bags</div>
             <section className="dashboard">
                 <div className="bags__wrapper">
                     {

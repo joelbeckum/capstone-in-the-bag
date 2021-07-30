@@ -1,5 +1,6 @@
 import React from "react"
 import { useHistory } from "react-router-dom"
+import bagIcon from "../../icons/full-bag-gray.png"
 import "./Bags.css"
 
 export const Bag = ({ bag }) => {
@@ -23,7 +24,7 @@ export const Bag = ({ bag }) => {
 
     return (
         <div className="bag" onClick={handleClickBag}>
-            <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
+            <img src={bagIcon} alt="bag icon"/>
             {bag.name}
             {otherUserNameString}
         </div>
