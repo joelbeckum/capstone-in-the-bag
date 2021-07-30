@@ -48,16 +48,22 @@ export const BagDetail = () => {
                 </div>
                 <div className="bagButtons__wrapper">
                     <div className="bagButton" onClick={() => history.push(`/discs/addTo/${bag?.id}`)}>
-                        <img src={discIcon} alt="disc icon"/>
-                        <div className="bagButton__text">Add Disc</div>
+                        <div className="bagButton__content">
+                            <img src={discIcon} alt="disc icon"/>
+                            <div className="bagButton__text">Add Disc</div>
+                        </div>
                     </div>
                     <div className="bagButton" onClick={() => history.push(`/bags/edit/${bag.id}`)}>
-                        <img src={editIcon} alt="edit icon"/>
-                        <div className="bagButton__text">Change Bag Name</div>
+                        <div className="bagButton__content">
+                            <img src={editIcon} alt="edit icon"/>
+                            <div className="bagButton__text">Edit Disc Name</div>
+                        </div>
                     </div>
                     <div className="bagButton">
-                        <img src={removeIcon} alt="remove icon"/>
-                        <div className="bagButton__text">Remove Bag</div>
+                        <div className="bagButton__content">
+                            <img src={removeIcon} alt="remove icon"/>
+                            <div className="bagButton__text">Remove Disc</div>
+                        </div>
                     </div>
                 </div>
             </section>

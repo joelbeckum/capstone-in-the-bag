@@ -1,5 +1,6 @@
 import React from "react"
 import { useHistory } from "react-router-dom"
+import discIcon from "../../icons/disc-icon-gray.png"
 import "../bags/Bags.css"
 
 export const UserDisc = ({ userDisc, discs }) => {
@@ -17,8 +18,11 @@ export const UserDisc = ({ userDisc, discs }) => {
 
     return (
         <div className="bagDisc" onClick={handleClickDisc}>
-            <div className="bagDisc__type"><strong>Type: </strong>{disc?.discType}</div>
-            <div className="bagDisc__name"><strong>Name: </strong>{userDisc.name}</div>
+            <img src={discIcon} alt="disc icon"/>
+            <div className="bagDisc__text">
+                <div className="bagDisc__type"><strong>Type: </strong>{disc?.discType}</div>
+                <div className="bagDisc__name"><strong>Name: </strong>{userDisc.name}</div>
+            </div>
         </div>
     )
 }

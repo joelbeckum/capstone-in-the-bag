@@ -13,6 +13,7 @@
 .logo {
     height: 100px;
     padding: 25px 0;
+    cursor: pointer;
 }
 
 .logout__button {
