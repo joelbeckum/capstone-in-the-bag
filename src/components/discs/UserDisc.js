@@ -2,9 +2,10 @@ import React from "react"
 import { useHistory } from "react-router-dom"
 import "../bags/Bags.css"
 
-export const UserDisc = ({ userDisc }) => {
+export const UserDisc = ({ userDisc, discs }) => {
     const history = useHistory()
     const currentUserId = parseInt(sessionStorage.getItem("itb_user"))
+    const disc = discs?.find(disc => disc.id === userDisc.discId)
 
     const handleClickDisc = () => {
         if (currentUserId === userDisc.bag.userId) {
@@ -16,7 +17,8 @@ export const UserDisc = ({ userDisc }) => {
 
     return (
         <div className="bagDisc" onClick={handleClickDisc}>
-            <div className="bagDisc__name">{userDisc.name}</div>
+            <div className="bagDisc__type"><strong>Type: </strong>{disc?.discType}</div>
+            <div className="bagDisc__name"><strong>Name: </strong>{userDisc.name}</div>
         </div>
     )
 }

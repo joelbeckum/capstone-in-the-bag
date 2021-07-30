@@ -5,10 +5,25 @@ import "../bags/Bags.css"
 
 export const Message = ({ message, setDialog, setMessageId }) => {
     const { removeMessage } = useContext(MessageContext)
+    const currentUserId = parseInt(sessionStorage.getItem("itb_user"))
 
     const handleEditClick = () => {
         setDialog(true)
         setMessageId(message.id)
+    }
+
+    let userButtons
+    if (currentUserId === message.userId) {
+        userButtons = (
+            <>
+               <div className="message__edit" onClick={handleEditClick}>
+                    <img src={editIcon} alt="edit icon"/>
+                </div>
+                <div className="message__delete" onClick={() => removeMessage(message.id)}>
+                    <img src="https://via.placeholder.com/25x25" alt="placeholder"/>
+                </div> 
+            </>
+        )
     }
     
     return (
@@ -19,12 +34,7 @@ export const Message = ({ message, setDialog, setMessageId }) => {
             <div className="message__body">
                 {message.body}
             </div>
-            <div className="message__edit" onClick={handleEditClick}>
-            <img src={editIcon} alt="edit icon"/>
-            </div>
-            <div className="message__delete" onClick={() => removeMessage(message.id)}>
-                <img src="https://via.placeholder.com/25x25" alt="placeholder"/>
-            </div>
+            {userButtons}
         </div>
     )
 }

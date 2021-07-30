@@ -25,16 +25,18 @@ export const ApplicationViews = () => {
             </BagProvider>
 
             <BagProvider>
-                <UserDiscProvider>
-                    <MessageProvider>
-                        <Route exact path="/bags/:bagId(\d+)">
-                            <BagDetail />
-                        </Route>
-                        <Route exact path="/otherBags/:bagId(\d+)">
-                            <OtherBagDetail />
-                        </Route>
-                    </MessageProvider>
-                </UserDiscProvider>
+                <DiscProvider>
+                    <UserDiscProvider>
+                        <MessageProvider>
+                            <Route exact path="/bags/:bagId(\d+)">
+                                <BagDetail />
+                            </Route>
+                            <Route exact path="/otherBags/:bagId(\d+)">
+                                <OtherBagDetail />
+                            </Route>
+                        </MessageProvider>
+                    </UserDiscProvider>
+                </DiscProvider>
             </BagProvider>
 
             <BagProvider>
