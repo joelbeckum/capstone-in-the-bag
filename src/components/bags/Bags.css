@@ -130,6 +130,11 @@
     justify-content: space-evenly;
 }
 
+.otherButtons__wrapper {
+    height: 1000px;
+    justify-content: start;
+}
+
 .bagButton {
     width: 300px;
     height: 300px;
@@ -158,29 +163,60 @@
     padding: 0 50px;
 }
 
-
-
-
-
-
-
-
 /* -- message styling -- */
 
-
-.otherMessage {
-    background-color: #33cccc26;
+.messages__wrapper {
     width: 1000px;
     margin: 0 auto;
+}
+
+.dialog__button {
+    background-color: #33cccc;
+    height: fit-content;
+    width: fit-content;
+    margin: 25px 0;
+    padding: 20px 25px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.message {
+    background-color: #33cccc26;
+    width: 1000px;
+    margin: 0 auto 10px;
     border-radius: 20px;
 }
 
-.otherMessage__text {
+.message__content {
     margin: 25px 0;
     padding: 25px;
 }
 
-.otherMessage__sender {
+.message__sender {
     font-weight: 700;
     margin-bottom: 10px;
 }
+
+.messageButtons {
+    float: right;
+    /* justify-content: flex-end; */
+}
+
+.messageButtons img {
+    height: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.messageButton__edit {
+    display: inline-block;
+}
+
+.messageButton__delete {
+    display: inline-block;
+}
+
+

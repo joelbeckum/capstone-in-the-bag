@@ -6,6 +6,7 @@ import { UserDisc } from "../discs/UserDisc"
 import { MessageContext } from "../messages/MessageProvider"
 import { MessageForm } from "../messages/MessageForm"
 import { Message } from "../messages/Message"
+import discIcon from "../../icons/disc-gray.png"
 import "./Bags.css"
 
 export const OtherBagDetail = () => {
@@ -32,27 +33,37 @@ export const OtherBagDetail = () => {
     const filteredMessages = messages?.filter(message => message.bagId === parseInt(bagId))
 
     return (
-        <section className="otherDiscs">
-            <div className="otherDiscs__wrapper">
-                {
-                    bagDiscs?.map(userDisc => {
-                        return <UserDisc key={userDisc.id} userDisc={userDisc} />
-                    })
-                }
-            </div>
-            <div className="otherButtons__wrapper">
-                <div className="otherButton" onClick={() => history.push("/otherBags")}>
-                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                    Back to Other Bags
+        <>
+            <section className="bagDetail">
+                <div className="discs">
+                    <div className="discs__title">Discs:</div>
+                    <div className="discs__wrapper">
+                        {
+                            bagDiscs?.map(userDisc => {
+                                return <UserDisc key={userDisc.id} userDisc={userDisc} />
+                            })
+                        }
+                    </div>
                 </div>
-            </div>
+                <div className="bagButtons__wrapper otherButtons__wrapper">
+                    <div className="bagButton otherButton" onClick={() => history.push("/otherBags")}>
+                        <div className="bagButton__content">
+                            <img src={discIcon} alt="disc icon"/>
+                            <div className="bagButton__text">
+                                Back to Other Bags
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        
+            </section>
             <div className="messages__wrapper">
                 <button className="dialog__button" onClick={() => setDialog(true)}>Comment on this bag</button>
                 <dialog className="dialog__box" open={dialog}>
                     <MessageForm key={bagId} 
-                                 setDialog={setDialog} 
-                                 messageId={messageId} 
-                                 setMessageId={setMessageId} />
+                                setDialog={setDialog} 
+                                messageId={messageId} 
+                                setMessageId={setMessageId} />
                 </dialog>
                 <div className="messages">
                     {
@@ -65,6 +76,6 @@ export const OtherBagDetail = () => {
                     }
                 </div>
             </div>
-        </section>
+        </>
     )
 }

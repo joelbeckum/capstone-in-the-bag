@@ -67,7 +67,7 @@ export const BagDetail = () => {
                     </div>
                 </div>
             </section>
-            <div className="otherMessages__wrapper">
+            <div className="messages__wrapper">
                 {
                     bagMessages?.map(message => {
                         return <OtherMessage key={message.id} message={message} />
