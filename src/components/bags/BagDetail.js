@@ -56,13 +56,13 @@ export const BagDetail = () => {
                     <div className="bagButton" onClick={() => history.push(`/bags/edit/${bag.id}`)}>
                         <div className="bagButton__content">
                             <img src={editIcon} alt="edit icon"/>
-                            <div className="bagButton__text">Edit Disc Name</div>
+                            <div className="bagButton__text">Edit Bag Name</div>
                         </div>
                     </div>
                     <div className="bagButton">
                         <div className="bagButton__content">
                             <img src={removeIcon} alt="remove icon"/>
-                            <div className="bagButton__text">Remove Disc</div>
+                            <div className="bagButton__text">Remove Bag</div>
                         </div>
                     </div>
                 </div>

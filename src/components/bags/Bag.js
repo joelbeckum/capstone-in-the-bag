@@ -24,9 +24,13 @@ export const Bag = ({ bag }) => {
 
     return (
         <div className="bag" onClick={handleClickBag}>
-            <img src={bagIcon} alt="bag icon"/>
-            {bag.name}
-            {otherUserNameString}
+            <div className="bag__content">
+                <img src={bagIcon} alt="bag icon"/>
+                <div className="bag__text">
+                    {bag.name}
+                    {otherUserNameString}
+                </div>
+            </div>
         </div>
     )
 }

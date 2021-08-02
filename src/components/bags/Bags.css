@@ -9,7 +9,6 @@
 
 .bags__wrapper {
     width: 1000px;
-    background-color: #4444440D;
     border-radius: 20px;
     margin: 0 auto;
 }
@@ -27,17 +26,57 @@
     margin: 0 0 50px 0;
 }
 
+.bag__content {
+    text-align: center;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.bag img {
+    margin: 25px;
+}
+
+.bag__text {
+    padding: 0 50px 25px;
+}
+
 .buttons__wrapper {
+    width: 1000px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .button {
+    width: 475px;
+    height: 300px;
+    background: #33cccc;
+    border-radius: 20px;
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 20px;
+    margin-bottom: 50px;
     cursor: pointer;
+}
+
+.button__content {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.button img {
+    display: block;
+    padding: 25px;
+}
+
+.button__text {
+    margin: 25px;
 }
 
 /* -- Bag Detail Styling -- */
