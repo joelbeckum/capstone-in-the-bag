@@ -28,7 +28,9 @@ export const Bag = ({ bag }) => {
                 <img src={bagIcon} alt="bag icon"/>
                 <div className="bag__text">
                     {bag.name}
-                    {otherUserNameString}
+                    <div className="bag__otherText">
+                        {otherUserNameString}
+                    </div>
                 </div>
             </div>
         </div>
