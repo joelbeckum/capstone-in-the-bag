@@ -3,6 +3,8 @@ import { useHistory, useParams } from "react-router-dom"
 import { DiscContext } from "./DiscProvider"
 import { UserDiscContext } from "./UserDiscProvider"
 import { FlightPathImage } from "./FlightPathImage"
+import discIcon from "../../icons/disc-gray.png"
+import removeIcon from "../../icons/remove-gray.png"
 import "./Discs.css"
 
 export const DiscForm = () => {
@@ -92,16 +94,24 @@ export const DiscForm = () => {
     let variableButton
     if (userDiscId) {
         variableButton = (
-            <div className="button disc__delete" onClick={handleClickDeleteDisc}>
-                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                    Remove Disc from Bag
+            <div className="discButton" onClick={handleClickDeleteDisc}>
+                    <div className="discButton__content">
+                        <img src={removeIcon} alt="remove icon"/>
+                        <div className="discButton__text">
+                            Remove Disc from Bag
+                        </div>
+                    </div>
                 </div>
         )
     } else {
         variableButton = (
-            <div className="button disc__return" onClick={() => history.push("/")}>
-                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                    Back to Bags
+            <div className="discButton" onClick={() => history.push("/")}>
+                    <div className="discButton__content">
+                        <img src={discIcon} alt="disc icon"/>
+                        <div className="discButton__text">
+                            Back to Bags
+                        </div>
+                    </div>
                 </div>
         )
     }
@@ -191,9 +201,13 @@ export const DiscForm = () => {
                 </div>
             </div>
             <div className="buttons__wrapper">
-                <div className="button disc__save" onClick={handleClickSaveDisc}>
-                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                    {userDiscId ? "Save Changes" : "Add Disc"}
+                <div className="discButton" onClick={handleClickSaveDisc}>
+                    <div className="discButton__content">
+                        <img src={discIcon} alt="disc icon"/>
+                        <div className="discButton__text discButton__save">
+                            {userDiscId ? "Save Changes" : "Add Disc"}
+                        </div>
+                    </div>
                 </div>
                 {variableButton}
             </div>
