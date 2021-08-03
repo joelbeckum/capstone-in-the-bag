@@ -222,7 +222,6 @@
     position: fixed;
     width: 500px;
     bottom: 200px;
-    /* padding: 50px; */
     border: solid 5px #33cccc;
     border-radius: 20px;
     box-shadow: 1px 1px 1px 1px rgb(128, 128, 128);
@@ -257,4 +256,47 @@
     cursor: pointer;
 }
 
+/* -- New Bag Form styling -- */
 
+.bagForm {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.bagForm__title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.bagForm__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.bagForm label {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.bagForm__name {
+    width: 600px;
+    border: solid 2px #ffcc00;
+    padding: 5px;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 25px;
+}
+
+.bagForm__submit {
+    background-color: #33cccc;
+    height: fit-content;
+    width: fit-content;
+    margin: 10px 0;
+    padding: 20px 25px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+}

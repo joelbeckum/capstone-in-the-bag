@@ -56,24 +56,23 @@ export const BagForm = () => {
     }
     
     return (
-        <form className="bagForm">
-            <h3 className="bagForm__title">{bagId ? "Edit Bag" : "New Bag"}</h3>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Bag Name:</label>
+        <div className="bagForm">
+            <div className="bagForm__title">{bagId ? "Edit Bag" : "New Bag"}</div>
+                <div className="bagForm__content">
+                    <label htmlFor="name">Bag Name:  </label>
                     <input type="text"
                            id="name"
                            required
                            autoFocus
-                           className="form-control"
+                           autoComplete="off"
+                           className="bagForm__name"
                            placeholder="Enter name here"
                            value={bag.name}
                            onChange={handleInputChange} />
                 </div>
-            </fieldset>
-            <button onClick={handleClickSaveBag}>
+            <button className="bagForm__submit" onClick={handleClickSaveBag}>
                 {bagId ? "Update Bag" : "Save Bag"}
             </button>
-        </form>
+        </div>
     )
 }
