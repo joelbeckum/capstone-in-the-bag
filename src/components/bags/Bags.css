@@ -202,7 +202,6 @@
 
 .messageButtons {
     float: right;
-    /* justify-content: flex-end; */
 }
 
 .messageButtons img {
@@ -217,6 +216,45 @@
 
 .messageButton__delete {
     display: inline-block;
+}
+
+.dialog__box {
+    position: fixed;
+    width: 500px;
+    bottom: 200px;
+    /* padding: 50px; */
+    border: solid 5px #33cccc;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px 1px rgb(128, 128, 128);
+}
+
+.messageForm {
+    width: 450px;
+    margin: 25px auto;
+}
+
+.messageForm__input {
+    width: 450px;
+    height: 100px;
+    border: solid 2px #ffcc00;
+    border-radius: 10px;
+    padding: 5px;
+    outline: none;
+    resize: none;
+    overflow: auto;
+}
+
+.messageForm__submit {
+    background-color: #33cccc;
+    height: fit-content;
+    width: fit-content;
+    margin: 10px 0;
+    padding: 20px 25px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 
