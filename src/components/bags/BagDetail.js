@@ -15,7 +15,7 @@ export const BagDetail = () => {
     const [ bag, setBag ] = useState({})
     const { discs, getDiscs } = useContext(DiscContext)
     const { userDiscs, getUserDiscs } = useContext(UserDiscContext)
-    const { getBagById } = useContext(BagContext)
+    const { getBagById, removeBag } = useContext(BagContext)
     const { messages, getMessages } = useContext(MessageContext)
     const history = useHistory()
     const {bagId} = useParams()
@@ -32,6 +32,14 @@ export const BagDetail = () => {
 
     const bagDiscs = userDiscs?.filter(userDisc => bag.id === userDisc.bagId)
     const bagMessages = messages?.filter(message => bag.id === message.bagId)
+
+    const handleClickRemoveBag = e => {
+        e.preventDefault()
+
+        removeBag(bag.id)
+
+        history.push("/")
+    }
 
     return (
         <>
@@ -59,7 +67,7 @@ export const BagDetail = () => {
                             <div className="bagButton__text">Edit Bag Name</div>
                         </div>
                     </div>
-                    <div className="bagButton">
+                    <div className="bagButton" onClick={handleClickRemoveBag}>
                         <div className="bagButton__content">
                             <img src={removeIcon} alt="remove icon"/>
                             <div className="bagButton__text">Remove Bag</div>
