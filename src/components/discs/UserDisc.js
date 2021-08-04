@@ -20,7 +20,7 @@ export const UserDisc = ({ userDisc, discs }) => {
         <div className="bagDisc" onClick={handleClickDisc}>
             <img src={discIcon} alt="disc icon"/>
             <div className="bagDisc__text">
-                <div className="bagDisc__type"><strong>Type: </strong>{disc?.discType}</div>
+                <div className="bagDisc__type"><strong>Mold: </strong>{disc?.name}</div>
                 <div className="bagDisc__name"><strong>Name: </strong>{userDisc.name}</div>
             </div>
         </div>
