@@ -1,5 +1,6 @@
-import React, { useEffect, useContext } from "react"
+import React from "react"
 import { useHistory } from "react-router-dom"
+import bagIcon from "../../icons/full-bag-gray.png"
 import "./Bags.css"
 
 export const Bag = ({ bag }) => {
@@ -23,9 +24,15 @@ export const Bag = ({ bag }) => {
 
     return (
         <div className="bag" onClick={handleClickBag}>
-            <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-            {bag.name}
-            {otherUserNameString}
+            <div className="bag__content">
+                <img src={bagIcon} alt="bag icon"/>
+                <div className="bag__text">
+                    {bag.name}
+                    <div className="bag__otherText">
+                        {otherUserNameString}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

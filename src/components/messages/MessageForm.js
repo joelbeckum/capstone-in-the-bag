@@ -68,18 +68,18 @@ export const MessageForm = ({ setDialog, messageId, setMessageId }) => {
 
     return (
         <>
-            <form className="messageForm">
+            <div className="messageForm">
                 <textarea type="text"
-                          className="form-control" 
+                          className="messageForm__input" 
                           placeholder="Comment on this bag"
                           id="body" 
                           value={message.body} 
                           onChange={handleInputChange} />
-                <button className="message__submit"
+                <button className="messageForm__submit"
                         onClick={handleClickSubmit}>
                     {messageId ? "Update comment" : "Add comment"}
                 </button>
-            </form>
+            </div>
         </>
     )
 }

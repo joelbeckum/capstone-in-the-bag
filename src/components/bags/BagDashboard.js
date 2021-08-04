@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { BagContext } from "./BagProvider"
 import { Bag } from "./Bag"
+import emptyBagIcon from "../../icons/empty-bag-gray.png"
+import discIcon from "../../icons/disc-gray.png"
 import "./Bags.css"
 
 export const BagDashboard = () => {
@@ -18,7 +20,7 @@ export const BagDashboard = () => {
 
     return (
         <>
-            <h1 className="bags__title">Your Bags</h1>
+            <div className="bags__title">Your Bags</div>
             <section className="dashboard">
                 <div className="bags__wrapper">
                     {
@@ -29,12 +31,20 @@ export const BagDashboard = () => {
                 </div>
                 <div className="buttons__wrapper">
                     <div className="button bags__new" onClick={() => history.push("/bags/create")}>
-                        <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                        Create a Bag
+                        <div className="button__content">
+                            <img src={emptyBagIcon} alt="empty bag icon"/>
+                            <div className="button__text">
+                                Create a Bag
+                            </div>
+                        </div>
                     </div>
                     <div className="button bags__otherBags" onClick={() => history.push("/otherBags")}>
-                        <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                        See Others' Bags
+                        <div className="button__content">
+                            <img src={discIcon} alt="disc icon"/>
+                            <div className="button__text">
+                                See Others' Bags
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

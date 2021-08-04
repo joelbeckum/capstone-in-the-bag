@@ -3,6 +3,8 @@ import { useHistory, useParams } from "react-router-dom"
 import { DiscContext } from "./DiscProvider"
 import { UserDiscContext } from "./UserDiscProvider"
 import { FlightPathImage } from "./FlightPathImage"
+import discIcon from "../../icons/disc-gray.png"
+import removeIcon from "../../icons/remove-gray.png"
 import "./Discs.css"
 
 export const DiscForm = () => {
@@ -92,16 +94,24 @@ export const DiscForm = () => {
     let variableButton
     if (userDiscId) {
         variableButton = (
-            <div className="button disc__delete" onClick={handleClickDeleteDisc}>
-                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                    Remove Disc from Bag
+            <div className="discButton" onClick={handleClickDeleteDisc}>
+                    <div className="discButton__content">
+                        <img src={removeIcon} alt="remove icon"/>
+                        <div className="discButton__text">
+                            Remove Disc from Bag
+                        </div>
+                    </div>
                 </div>
         )
     } else {
         variableButton = (
-            <div className="button disc__return" onClick={() => history.push("/")}>
-                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                    Back to Bags
+            <div className="discButton" onClick={() => history.push("/")}>
+                    <div className="discButton__content">
+                        <img src={discIcon} alt="disc icon"/>
+                        <div className="discButton__text">
+                            Back to Bags
+                        </div>
+                    </div>
                 </div>
         )
     }
@@ -135,26 +145,24 @@ export const DiscForm = () => {
     if (pendingDisc?.id) {
         flightPathImage = (
             <>
-                <h3 className="discImage__title">{pendingDisc?.name}</h3>
-                <div className="discImage__type">Type: {pendingDisc?.discType}</div>
                 <div className="discImage__statsWrapper">
-                    <div className="discImage__stats">
-                        <div className="discImage__stat">
-                            Speed: {pendingDisc?.speed}
-                        </div>
-                        <div className="discImage__stat">
-                            Glide: {pendingDisc?.glide}
-                        </div>
-                        <div className="discImage__stat">
-                            Fade: {pendingDisc?.fade}
-                        </div>
-                        <div className="discImage__stat">
-                            Turn: {pendingDisc?.turn}
-                        </div>
+                    <div className="discImage__stat"><strong>Mold: </strong>{pendingDisc?.name}</div>
+                    <div className="discImage__stat"><strong>Type: </strong> {pendingDisc?.discType}</div>
+                    <div className="discImage__stat">
+                        <strong>Speed: </strong> {pendingDisc?.speed}
                     </div>
-                    <div className="discImage">
-                        <FlightPathImage key={pendingDisc?.id} disc={pendingDisc} />
+                    <div className="discImage__stat">
+                        <strong>Glide: </strong> {pendingDisc?.glide}
                     </div>
+                    <div className="discImage__stat">
+                        <strong>Turn: </strong> {pendingDisc?.turn}
+                    </div>
+                    <div className="discImage__stat">
+                        <strong>Fade: </strong> {pendingDisc?.fade}
+                    </div>
+                </div>
+                <div className="discImage__imageWrapper">
+                    <FlightPathImage key={pendingDisc?.id} disc={pendingDisc} />
                 </div>
             </>
         )
@@ -164,11 +172,12 @@ export const DiscForm = () => {
         <>
             <div className="discForm__wrapper">
                 <div className="discForm__inputWrapper">
-                    <form className="discForm">
-                        <h3 className="discForm__title">{userDiscId ? "Edit Disc" : "New Disc"}</h3>
+                    <div className="discForm">
+                        <div className="discForm__title">{userDiscId ? "Edit Disc" : "New Disc"}</div>
                         <div className="discForm__search">
+                            <div className="discForm__label">Disc Mold: </div>
                             <input type="text"
-                                className="search-box"
+                                className="discForm__input"
                                 id="discId"
                                 autoComplete="off"
                                 value={searchTerms}
@@ -176,24 +185,27 @@ export const DiscForm = () => {
                                 onChange={handleEnteredSearchTerms} />
                             {suggestionList}                
                         </div>
+                        <div className="discForm__label">Name for Disc: </div>
                         <div className="discForm__name">
                             <input type="text"
+                                className="discForm__input"
                                 autoComplete="off"
                                 id="name"
                                 value={userDisc.name}
-                                placeholder="Enter a name for your disc"
                                 onChange={handleInputChange} />
                         </div>
-                    </form>
+                    </div>
                 </div>
-                <div className="discForm__imageWrapper">
                     {flightPathImage}
-                </div>
             </div>
             <div className="buttons__wrapper">
-                <div className="button disc__save" onClick={handleClickSaveDisc}>
-                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                    {userDiscId ? "Save Changes" : "Add Disc"}
+                <div className="discButton" onClick={handleClickSaveDisc}>
+                    <div className="discButton__content">
+                        <img src={discIcon} alt="disc icon"/>
+                        <div className="discButton__text discButton__save">
+                            {userDiscId ? "Save Changes" : "Add Disc"}
+                        </div>
+                    </div>
                 </div>
                 {variableButton}
             </div>

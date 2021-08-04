@@ -4,6 +4,7 @@ import { DiscContext } from "./DiscProvider"
 import { UserDiscContext } from "./UserDiscProvider"
 import { BagContext } from "../bags/BagProvider"
 import { FlightPathImage } from "./FlightPathImage"
+import discIcon from "../../icons/disc-gray.png"
 import "./Discs.css"
 
 export const OtherDiscDetail = () => {
@@ -44,36 +45,42 @@ export const OtherDiscDetail = () => {
     return (
         <>
             <section className="otherDiscDetail">
-                <div className="otherDiscInfo__wrapper">
-                    <div className="otherDisc__name">
-                        {userDisc.name}
+                <div className="otherDisc__wrapper">
+                    <div className="otherDiscInfo__wrapper">
+                        <div className="otherDisc__text">
+                            <strong>Name:  </strong>{userDisc.name}
+                        </div>
+                        <div className="otherDisc__text">
+                            <strong>Mold:  </strong>{disc.name}
+                        </div>
+                        <div className="otherDisc__text">
+                            <strong>Type:  </strong>{disc.discType}
+                        </div>
+                        <div className="otherDisc__text">
+                            <strong>Speed:  </strong> {disc.speed}
+                        </div>
+                        <div className="otherDisc__text">
+                            <strong>Glide:  </strong> {disc.glide}
+                        </div>
+                        <div className="otherDisc__text">
+                            <strong>Turn:  </strong> {disc.turn}
+                        </div>
+                        <div className="otherDisc__text">
+                            <strong>Fade:  </strong> {disc.fade}
+                        </div>
                     </div>
-                    <div className="otherDisc__model">
-                        {disc.name}
-                    </div>
-                    <div className="otherDisc__type">
-                        {disc.discType}
-                    </div>
-                    <div className="otherDisc___speed">
-                        Speed: {disc.speed}
-                    </div>
-                    <div className="otherDisc___glide">
-                        Glide: {disc.glide}
-                    </div>
-                    <div className="otherDisc___turn">
-                        Turn: {disc.turn}
-                    </div>
-                    <div className="otherDisc___fade">
-                        Fade: {disc.fade}
+                    <div className="otherDiscImage__wrapper">
+                        <FlightPathImage key={disc.id} disc={disc} />
                     </div>
                 </div>
-                <div className="otherDiscImage__wrapper">
-                    <FlightPathImage key={disc.id} disc={disc} />
-                </div>
-                <div className="otherButtons__wrapper">
-                <div className="otherDiscButton" onClick={() => history.push(`/otherBags/${bag.id}`)}>
-                    <img src="https://via.placeholder.com/115x130" alt="placeholder"/>
-                    Back to Bag
+                <div className="buttons__wrapper">
+                <div className="discButton" onClick={() => history.push(`/otherBags/${bag.id}`)}>
+                    <div className="discButton__content">
+                        <img src={discIcon} alt="disc icon"/>
+                        <div className="discButton__text">
+                            Back to Bag
+                        </div>
+                    </div>
                 </div>
                 </div>
             </section>

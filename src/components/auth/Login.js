@@ -53,6 +53,7 @@ export const Login = () => {
                             className="form-control"
                             placeholder="Email address"
                             required autoFocus
+                            autoComplete="off"
                             value={loginUser.email}
                             onChange={handleInputChange} />
                     </fieldset>

@@ -1,29 +1,164 @@
 .discForm__wrapper {
+    width: 1000px;
+    margin: 0 auto 50px;
+    background-color: #ffcc0080;
+    border-radius: 20px;
     display: flex;
+    justify-content: space-between;
 }
 
+.discForm__inputWrapper {
+    margin: 50px 25px 100px;
+}
 
+.discForm__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
 
+.discForm__input {
+    width: 250px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    padding: 5px;
+    outline: none;
+    border: solid 2px #ffcc00;
+}
 
+.discForm__label {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
 
+/* -- Suggestion List Styling -- */
 
+.suggestions {
+    position: absolute;
+    width: 260px;
+    list-style-type: none;
+    background-color: rgb(247, 247, 247);
+    margin: -25px 0 25px;
+    border: 2px solid #33cccc;
+    border-radius: 10px;
+    padding: 0;
+    z-index: 1;
+}
 
+.suggestion {
+    list-style-type: none;
+    border-bottom: 2px solid #33cccc;
+    border-radius: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+}
 
+.suggestion:nth-last-child(1) {
+    border-bottom: none;
+}
 
-
-
+.suggestion:hover {
+    color: white;
+    background-color: #33cccc;
+    /* border-radius: 10px; */
+}
 
 /* -- Image and Stats styling -- */
 .discImage__statsWrapper {
-    display: flex;
+    font-size: 24px;
+    margin: 50px 0;
 }
 
+.discImage__stat {
+    margin-bottom: 25px;
+}
 
+.discImage__imageWrapper {
+    margin: 25px 5px;
+}
 
+/* -- button styling -- */
+
+.discButton__content {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.buttons__wrapper {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.discButton {
+    width: 475px;
+    height: 300px;
+    background: #33cccc;
+    border-radius: 20px;
+    display: flex;
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.discButton img {
+    display: block;
+    padding: 25px;
+}
+
+.discButton__text {
+    margin: 25px;
+}
+
+.discButton__save {
+    margin-left: 0;
+}
 
 /* -- Other Disc Detail styling -- */
 .otherDiscDetail {
+    width: 1000px;
+    margin: 0 auto 50px;
+    font-size: 24px;
+}
+
+.otherDisc__wrapper {
+    background-color: #ffcc0080;
+    border-radius: 20px;
+    margin-bottom: 50px;
     display: flex;
+    justify-content: space-between;
+}
+
+.otherDiscInfo__wrapper {
+    width: 450px;
+    margin: 50px 50px;
+}
+
+.otherDisc__text {
+    margin-bottom: 25px;
+}
+
+.otherDiscImage__wrapper {
+    width: 450px;
+    margin: 25px 0;
+}
+
+.flightPathImage {
+    background-color: white;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px rgb(128, 128, 128);
+}
+
+.flightPathImage img {
+    width: 200px;
 }
 
 .otherDiscButton {
