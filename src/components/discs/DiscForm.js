@@ -192,7 +192,6 @@ export const DiscForm = () => {
                                 autoComplete="off"
                                 id="name"
                                 value={userDisc.name}
-                                placeholder="Enter a name for your disc"
                                 onChange={handleInputChange} />
                         </div>
                     </div>
