@@ -1,21 +1,47 @@
 .discForm__wrapper {
+    width: 1000px;
+    margin: 0 auto 50px;
+    background-color: #ffcc0080;
+    border-radius: 20px;
     display: flex;
+    justify-content: space-between;
 }
 
+.discForm__inputWrapper {
+    margin: 50px 25px;
+}
 
+.discForm__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
 
+.discForm__input {
+    border-radius: 10px;
+    margin-bottom: 25px;
+    padding: 5px;
+    outline: none;
+    border: solid 2px #ffcc00;
+}
 
-
-
-
-
-
-
-
+.discForm__label {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
 
 /* -- Image and Stats styling -- */
 .discImage__statsWrapper {
-    display: flex;
+    font-size: 24px;
+    margin: 50px 0;
+}
+
+.discImage__stat {
+    margin-bottom: 25px;
+}
+
+.discImage__imageWrapper {
+    margin: 25px 5px;
 }
 
 /* -- button styling -- */

@@ -145,26 +145,24 @@ export const DiscForm = () => {
     if (pendingDisc?.id) {
         flightPathImage = (
             <>
-                <h3 className="discImage__title">{pendingDisc?.name}</h3>
-                <div className="discImage__type">Type: {pendingDisc?.discType}</div>
                 <div className="discImage__statsWrapper">
-                    <div className="discImage__stats">
-                        <div className="discImage__stat">
-                            Speed: {pendingDisc?.speed}
-                        </div>
-                        <div className="discImage__stat">
-                            Glide: {pendingDisc?.glide}
-                        </div>
-                        <div className="discImage__stat">
-                            Fade: {pendingDisc?.fade}
-                        </div>
-                        <div className="discImage__stat">
-                            Turn: {pendingDisc?.turn}
-                        </div>
+                    <div className="discImage__stat"><strong>Mold: </strong>{pendingDisc?.name}</div>
+                    <div className="discImage__stat"><strong>Type: </strong> {pendingDisc?.discType}</div>
+                    <div className="discImage__stat">
+                        <strong>Speed: </strong> {pendingDisc?.speed}
                     </div>
-                    <div className="discImage">
-                        <FlightPathImage key={pendingDisc?.id} disc={pendingDisc} />
+                    <div className="discImage__stat">
+                        <strong>Glide: </strong> {pendingDisc?.glide}
                     </div>
+                    <div className="discImage__stat">
+                        <strong>Turn: </strong> {pendingDisc?.turn}
+                    </div>
+                    <div className="discImage__stat">
+                        <strong>Fade: </strong> {pendingDisc?.fade}
+                    </div>
+                </div>
+                <div className="discImage__imageWrapper">
+                    <FlightPathImage key={pendingDisc?.id} disc={pendingDisc} />
                 </div>
             </>
         )
@@ -174,11 +172,12 @@ export const DiscForm = () => {
         <>
             <div className="discForm__wrapper">
                 <div className="discForm__inputWrapper">
-                    <form className="discForm">
-                        <h3 className="discForm__title">{userDiscId ? "Edit Disc" : "New Disc"}</h3>
+                    <div className="discForm">
+                        <div className="discForm__title">{userDiscId ? "Edit Disc" : "New Disc"}</div>
                         <div className="discForm__search">
+                            <div className="discForm__label">Disc Mold: </div>
                             <input type="text"
-                                className="search-box"
+                                className="discForm__input"
                                 id="discId"
                                 autoComplete="off"
                                 value={searchTerms}
@@ -186,19 +185,19 @@ export const DiscForm = () => {
                                 onChange={handleEnteredSearchTerms} />
                             {suggestionList}                
                         </div>
+                        <div className="discForm__label">Name for Disc: </div>
                         <div className="discForm__name">
                             <input type="text"
+                                className="discForm__input"
                                 autoComplete="off"
                                 id="name"
                                 value={userDisc.name}
                                 placeholder="Enter a name for your disc"
                                 onChange={handleInputChange} />
                         </div>
-                    </form>
+                    </div>
                 </div>
-                <div className="discForm__imageWrapper">
                     {flightPathImage}
-                </div>
             </div>
             <div className="buttons__wrapper">
                 <div className="discButton" onClick={handleClickSaveDisc}>
