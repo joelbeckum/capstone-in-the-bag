@@ -83,6 +83,10 @@
     display: none;
 }
 
+.button:hover .button__content {
+    font-size: 40px;
+}
+
 .button__content {
     text-align: center;
     margin: auto;
@@ -135,6 +139,11 @@
     justify-content: left;
     align-items: center;
     cursor: pointer;
+    transition: all 0.05s ease-in;
+}
+
+.bagDisc:hover {
+    background-color: #ffcc0066;
 }
 
 .bagDisc img {
@@ -161,12 +170,20 @@
     display: flex;
     margin: 0 0 50px 50px;
     cursor: pointer;
-    transition: all 0.1s ease-in;
+    transition: all 0.05s ease-in;
 }
 
 .bagButton:hover {
     background: white;
     border: 5px solid #33cccc;
+}
+
+.bagButton:hover img {
+    display: none;
+}
+
+.bagButton:hover .bagButton__content {
+    font-size: 46px;
 }
 
 .bagButton__content {

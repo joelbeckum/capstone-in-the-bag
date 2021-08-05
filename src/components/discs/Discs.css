@@ -104,6 +104,21 @@
     display: flex;
     margin-bottom: 50px;
     cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.1s ease-in;
+}
+
+.discButton:hover {
+    background-color: white;
+    border: 5px solid #33cccc;
+}
+
+.discButton:hover .discButton__content img {
+    display: none;
+}
+
+.discButton:hover .discButton__content {
+    font-size: 40px;
 }
 
 .discButton img {
