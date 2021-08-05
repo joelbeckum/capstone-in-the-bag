@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import { BagContext } from "./BagProvider"
+import { DiscContext } from "../discs/DiscProvider"
 import { UserDiscContext } from "../discs/UserDiscProvider"
 import { UserDisc } from "../discs/UserDisc"
 import { MessageContext } from "../messages/MessageProvider"
@@ -11,6 +12,7 @@ import "./Bags.css"
 
 export const OtherBagDetail = () => {
     const [ bag, setBag ] = useState({})
+    const { discs, getDiscs } = useContext(DiscContext)
     const { userDiscs, getUserDiscs } = useContext(UserDiscContext)
     const { messages, getMessages } = useContext(MessageContext)
     const { getBagById } = useContext(BagContext)
@@ -25,6 +27,7 @@ export const OtherBagDetail = () => {
             setBag(res)
         })
         .then(getUserDiscs())
+        .then(getDiscs())
         .then(getMessages())
     }, [])
 
@@ -40,7 +43,7 @@ export const OtherBagDetail = () => {
                     <div className="discs__wrapper">
                         {
                             bagDiscs?.map(userDisc => {
-                                return <UserDisc key={userDisc.id} userDisc={userDisc} />
+                                return <UserDisc key={userDisc.id} userDisc={userDisc} discs={discs} />
                             })
                         }
                     </div>
