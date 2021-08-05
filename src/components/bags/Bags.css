@@ -20,6 +20,12 @@
     border-radius: 20px;
     display: inline-block;
     cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.05s ease-in;
+}
+
+.bag:hover {
+    background-color: #ffcc0066;
 }
 
 .bag:nth-child(3n) {
@@ -64,6 +70,17 @@
     display: flex;
     margin-bottom: 50px;
     cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.05s ease-in;
+}
+
+.button:hover {
+    background-color: white;
+    border: 5px solid #33cccc;
+}
+
+.button:hover .button__content img {
+    display: none;
 }
 
 .button__content {
@@ -140,9 +157,16 @@
     height: 300px;
     background: #33cccc;
     border-radius: 20px;
+    box-sizing: border-box;
     display: flex;
     margin: 0 0 50px 50px;
     cursor: pointer;
+    transition: all 0.1s ease-in;
+}
+
+.bagButton:hover {
+    background: white;
+    border: 5px solid #33cccc;
 }
 
 .bagButton__content {
