@@ -352,4 +352,9 @@
     font-weight: bold;
     font-size: 24px;
     cursor: pointer;
+    transition: all 0.1s ease-in;
+}
+
+.bagForm__submit:hover {
+    background-color: #ffcc00;
 }
