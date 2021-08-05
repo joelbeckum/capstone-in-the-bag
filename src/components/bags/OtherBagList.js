@@ -17,7 +17,7 @@ export const OtherBagList = () => {
 
     return (
         <>
-            <h1 className="otherBags__title">Other Users' Bags</h1>
+            <div className="bags__title">Other Users' Bags</div>
             <section className="otherBags">
                 <div className="bags__wrapper">
                     {
