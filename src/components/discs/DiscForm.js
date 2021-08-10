@@ -122,7 +122,8 @@ export const DiscForm = () => {
     let flightPathImage
     
     if (searchTerms) {
-        filteredDiscs = discs.filter(disc => disc.name?.toLowerCase().includes(searchTerms))
+        // filteredDiscs = discs.filter(disc => disc.name?.toLowerCase().includes(searchTerms))
+        filteredDiscs = discs.filter(disc => disc.name?.match(new RegExp(searchTerms, "i")))
         suggestionList = (
             <div className="suggestion__wrapper">
                 <ul className="suggestions">
