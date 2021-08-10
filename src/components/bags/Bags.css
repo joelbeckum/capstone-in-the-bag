@@ -3,7 +3,7 @@
 .bags__title {
     text-align: center;
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 25px;
 }
 
@@ -20,6 +20,12 @@
     border-radius: 20px;
     display: inline-block;
     cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in;
+}
+
+.bag:hover {
+    background-color: #ffcc0066;
 }
 
 .bag:nth-child(3n) {
@@ -64,6 +70,21 @@
     display: flex;
     margin-bottom: 50px;
     cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in;
+}
+
+.button:hover {
+    background-color: white;
+    border: 5px solid #33cccc;
+}
+
+.button:hover .button__content img {
+    display: none;
+}
+
+.button:hover .button__content {
+    font-size: 40px;
 }
 
 .button__content {
@@ -118,6 +139,11 @@
     justify-content: left;
     align-items: center;
     cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.bagDisc:hover {
+    background-color: #ffcc0066;
 }
 
 .bagDisc img {
@@ -131,7 +157,7 @@
 }
 
 .otherButtons__wrapper {
-    height: 1000px;
+    height: 600px;
     justify-content: start;
 }
 
@@ -140,9 +166,24 @@
     height: 300px;
     background: #33cccc;
     border-radius: 20px;
+    box-sizing: border-box;
     display: flex;
     margin: 0 0 50px 50px;
     cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.bagButton:hover {
+    background: white;
+    border: 5px solid #33cccc;
+}
+
+.bagButton:hover img {
+    display: none;
+}
+
+.bagButton:hover .bagButton__content {
+    font-size: 46px;
 }
 
 .bagButton__content {
@@ -181,6 +222,11 @@
     font-weight: bold;
     font-size: 24px;
     cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.dialog__button:hover {
+    background-color: #ffcc00;
 }
 
 .message {
@@ -210,12 +256,14 @@
     cursor: pointer;
 }
 
-.messageButton__edit {
+.messageButton {
     display: inline-block;
+    border-radius: 10px;
+    transition: all 0.2s ease-in;
 }
 
-.messageButton__delete {
-    display: inline-block;
+.messageButton:hover {
+    background-color: #ffcc00;
 }
 
 .dialog__box {
@@ -254,6 +302,11 @@
     font-weight: bold;
     font-size: 24px;
     cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.messageForm__submit:hover {
+    background-color: #ffcc00;
 }
 
 /* -- New Bag Form styling -- */
@@ -299,4 +352,9 @@
     font-weight: bold;
     font-size: 24px;
     cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.bagForm__submit:hover {
+    background-color: #ffcc00;
 }

@@ -18,10 +18,10 @@ export const Message = ({ message, setDialog, setMessageId }) => {
         userButtons = (
             <>
                <div className="messageButtons">
-                    <div className="messageButton__edit" onClick={handleEditClick}>
+                    <div className="messageButton" onClick={handleEditClick}>
                         <img src={editIcon} alt="edit icon"/>
                     </div>
-                    <div className="messageButton__delete" onClick={() => removeMessage(message.id)}>
+                    <div className="messageButton" onClick={() => removeMessage(message.id)}>
                         <img src={removeIcon} alt="remove icon"/>
                     </div> 
                </div>
