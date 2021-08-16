@@ -11,3 +11,17 @@ textarea {
 	font-size: 20px;
 	line-height: 1;
 }
+
+a {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+a:hover {
+    color: #ffcc00 !important;
+}
+
+a:visited {
+    color: white;
+}
