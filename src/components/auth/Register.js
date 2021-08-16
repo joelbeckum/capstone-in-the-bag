@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom";
-
+import logo from "../../icons/logo.png"
 import "./Auth.css"
 
 export const Register = () => {
@@ -57,7 +57,7 @@ export const Register = () => {
     }
 
     return (
-        <main style={{ textAlign: "center" }}>
+        <main className="container--register">
 
             <dialog className="dialog dialog--password" open={conflictDialog}>
                 <div>Account with that email address already exists</div>
@@ -65,22 +65,17 @@ export const Register = () => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Please Register for In The Bag</h1>
-                <fieldset>
+                    <div className="logo--login">
+                        <img src={logo} alt="logo"/>
+                    </div>
+                <h2>Please Register for In The Bag</h2>
                     <label htmlFor="firstName"> First Name </label>
                     <input type="text" name="firstName" id="firstName" className="form-control" placeholder="First name" required autoFocus value={registerUser.firstName} onChange={handleInputChange} />
-                </fieldset>
-                <fieldset>
                     <label htmlFor="lastName"> Last Name </label>
                     <input type="text" name="lastName" id="lastName" className="form-control" placeholder="Last name" required value={registerUser.lastName} onChange={handleInputChange} />
-                </fieldset>
-                <fieldset>
                     <label htmlFor="inputEmail"> Email address </label>
                     <input type="email" name="email" id="email" className="form-control" placeholder="Email address" required value={registerUser.email} onChange={handleInputChange} />
-                </fieldset>
-                <fieldset>
-                    <button type="submit"> Sign in </button>
-                </fieldset>
+                    <button className="submitButton" type="submit"> Sign in </button>
             </form>
         </main>
     )

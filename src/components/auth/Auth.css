@@ -51,17 +51,13 @@ label {
     background-color: #ffcc00;
 }
 
-/* .link--register {
-    color: #ffcc00 !important;
-    font-size: 20px;
-    font-weight: 700;
+/* -- Register Form Styling -- */
+.container--register {
+    width: 1000px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #33cccc;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
 }
-
-.link--register:hover {
-    color: white;
-}
-
-.link--register:visited {
-    color: #ffcc00 !important;
-} */
-
