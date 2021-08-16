@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
+import logo from "../../icons/logo.png"
 import "./Auth.css"
 
 
@@ -44,9 +45,10 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>In The Bag</h1>
+                    <div className="logo--login">
+                        <img src={logo} alt="logo"/>
+                    </div>
                     <h2>Please sign in</h2>
-                    <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email"
                             id="email"
@@ -56,12 +58,9 @@ export const Login = () => {
                             autoComplete="off"
                             value={loginUser.email}
                             onChange={handleInputChange} />
-                    </fieldset>
-                    <fieldset>
-                        <button type="submit">
+                        <button className="submitButton" type="submit">
                             Sign in
                         </button>
-                    </fieldset>
                 </form>
             </section>
             <section className="link--register">

@@ -1,0 +1,63 @@
+.container--login {
+    background-color: #33cccc;
+    border-radius: 20px;
+    width: 1000px;
+    margin: 50px auto;
+    padding: 50px;
+}
+
+h2 {
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+label {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.form--login {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control {
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    padding: 5px;
+    outline: none;
+    border: solid 2px #ffcc00;
+}
+
+.submitButton {
+    background-color: white;
+    height: fit-content;
+    width: fit-content;
+    margin: 25px 0 25px;
+    padding: 20px 25px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.submitButton:hover {
+    background-color: #ffcc00;
+}
+
+/* -- Register Form Styling -- */
+.container--register {
+    width: 1000px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #33cccc;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
